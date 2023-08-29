@@ -8,7 +8,7 @@ import { loginValidation, postCreateValidation } from './validations.js';
 import { create, getAll, getOne, remove, update } from './controllers/PostController.js';
 import handleValidationErrors from './utils/handleValidationErrors.js';
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect('mongodb+srv://fahradlevonyan:alfa1973@cluster0.f0np7av.mongodb.net/blog?retryWrites=true&w=majority')
     .then(() => console.log('DB ok!'))
     .catch(() => console.log('DB error!'))
 
