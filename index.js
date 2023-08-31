@@ -7,7 +7,7 @@ import { getMe, login, register } from './controllers/UserController.js';
 import { loginValidation, postCreateValidation } from './validations.js';
 import { create, getAll, getOne, remove, update } from './controllers/PostController.js';
 import handleValidationErrors from './utils/handleValidationErrors.js';
-
+import cors from 'cors'
 mongoose.connect('mongodb+srv://fahradlevonyan:alfa1973@cluster0.f0np7av.mongodb.net/blog?retryWrites=true&w=majority')
     .then(() => console.log('DB ok!'))
     .catch(() => console.log('DB error!'))
@@ -24,6 +24,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 app.use(express.json());
+app.use(cors())
 app.use('/uploads', express.static('uploads'))
 
 app.get('/', (_, res) => res.send('hello world!'))
